@@ -838,7 +838,7 @@ const Page: React.FC = () => {
             }}
             InputProps={{
               endAdornment: (
-                <InputAdornment position='end'>
+                <InputAdornment position='end' sx={{ boderColor: 'white' }}>
                   <IconButton edge='end'>
                     <GridSearchIcon sx={{ color: 'white' }} />
                   </IconButton>
