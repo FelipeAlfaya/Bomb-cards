@@ -91,7 +91,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Rian',
-    guild: null,
+    guild: 'unemployed',
     nationality: 'Colombia',
     sector: null,
     playstyle: 'PAS',
