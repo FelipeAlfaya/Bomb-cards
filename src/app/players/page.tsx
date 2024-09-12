@@ -584,7 +584,7 @@ const playerData: Player[] = [
   {
     name: 'BRuki',
     guild: 'LS',
-    nationality: 'Brazil',
+    nationality: 'Italy',
     sector: null,
     playstyle: 'AGGRO',
     alignment: null,
