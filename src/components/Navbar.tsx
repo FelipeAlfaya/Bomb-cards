@@ -17,19 +17,18 @@ const NavbarContainer = styled(AppBar)(({ theme }) => ({
 
 const Navbar: React.FC = () => {
   return (
-    <NavbarContainer position='static'>
+    <NavbarContainer position='fixed'>
       <Toolbar>
         <Container
           maxWidth='lg'
           sx={{
-            position: 'fixed',
             display: 'flex',
             justifyContent: 'space-between',
             textDecoration: 'none',
             color: 'white',
           }}
         >
-          <Typography variant='h6' component='div'>
+          <Typography variant='h6' component='div' sx={{ postiion: 'fixed' }}>
             Bombastic
           </Typography>
           <Grid

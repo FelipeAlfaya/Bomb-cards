@@ -10,5 +10,5 @@ export interface PlayerCardProps {
   ACC: number
   ADP: number
   PS: number
-  Overall: number
+  overall: number
 }

@@ -37,7 +37,6 @@ const FifaCard: React.FC<FifaCardProps> = ({ player }) => {
         textAlign: 'center',
       }}
     >
-      {/* Overall Section */}
       <Box
         className='overall'
         style={{
@@ -58,7 +57,6 @@ const FifaCard: React.FC<FifaCardProps> = ({ player }) => {
         </Typography>
       </Box>
 
-      {/* Image */}
       <Box className='player-image' style={{ padding: '16px 0' }}>
         <img
           src='../images/teste.png'
@@ -67,12 +65,10 @@ const FifaCard: React.FC<FifaCardProps> = ({ player }) => {
         />
       </Box>
 
-      {/* Player Name */}
       <Typography variant='h5' style={{ marginBottom: 8, fontWeight: 'bold' }}>
         {player.name}
       </Typography>
 
-      {/* Stats Section */}
       <CardContent>
         <Box
           className='stats-section'
@@ -83,7 +79,6 @@ const FifaCard: React.FC<FifaCardProps> = ({ player }) => {
             marginBottom: 16,
           }}
         >
-          {/* First Column */}
           <Box className='stats-column'>
             <Typography variant='body1' style={{ fontSize: 18 }}>
               FLX: {player.Flexibility}
@@ -96,7 +91,6 @@ const FifaCard: React.FC<FifaCardProps> = ({ player }) => {
             </Typography>
           </Box>
 
-          {/* Second Column */}
           <Box className='stats-column'>
             <Typography variant='body1' style={{ fontSize: 18 }}>
               ACC: {player.ACC}

@@ -23,10 +23,28 @@ import Germany from '../../images/Germany.png'
 import LS from '../../images/guilds/LS.png'
 import Moonshine from '../../images/guilds/Moonshine.png'
 import Nightfall from '../../images/guilds/Nightfall.png'
-import { IconButton, InputAdornment, TextField } from '@mui/material'
+import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
 
-const playerData = [
+// Tipagem para os jogadores
+interface Player {
+  name: string
+  guild: string | null
+  nationality: string | null
+  sector: string | null
+  playstyle: string
+  alignment: string | null
+  Flexibility: number
+  Speed: number
+  Aim: number
+  ACC: number
+  ADP: number
+  PS: number
+  overall: number
+  OBS?: string
+}
+
+const playerData: Player[] = [
   {
     name: 'Suka',
     guild: 'Moonshine',
@@ -469,7 +487,8 @@ const playerData = [
     guild: 'LS',
     nationality: 'Germany',
     sector: null,
-    playstyle: null,
+    playstyle: '',
+    alignment: null,
     Flexibility: 75,
     Speed: 80,
     Aim: 80,
@@ -484,6 +503,7 @@ const playerData = [
     nationality: 'USA',
     sector: null,
     playstyle: 'PAS',
+    alignment: null,
     Flexibility: 84,
     Speed: 95,
     Aim: 90,
@@ -498,6 +518,7 @@ const playerData = [
     nationality: 'USA',
     sector: null,
     playstyle: 'MIX',
+    alignment: null,
     Flexibility: 80,
     Speed: 78,
     Aim: 81,
@@ -512,6 +533,7 @@ const playerData = [
     nationality: 'Italy',
     sector: null,
     playstyle: 'PAS',
+    alignment: null,
     Flexibility: 79,
     Speed: 81,
     Aim: 85,
@@ -520,18 +542,64 @@ const playerData = [
     PS: 80,
     overall: 81,
   },
+  {
+    name: 'Esdeath',
+    guild: 'Nightfall',
+    nationality: 'Philipines',
+    sector: null,
+    playstyle: 'PAS',
+    alignment: null,
+    Flexibility: 82,
+    Speed: 80,
+    Aim: 85,
+    ACC: 82,
+    ADP: 78,
+    PS: 84,
+    overall: 82,
+  },
 ]
 
 const Page: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [sortBy, setSortBy] = useState<
+    'name' | 'Flexibility' | 'Speed' | 'Aim' | 'ACC' | 'ADP' | 'PS' | 'overall'
+  >('name')
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value)
   }
 
-  const filteredPlayers = playerData.filter((player) =>
-    player.name.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const handleSortChange = (
+    criteria:
+      | 'name'
+      | 'Flexibility'
+      | 'Speed'
+      | 'Aim'
+      | 'ACC'
+      | 'ADP'
+      | 'PS'
+      | 'overall'
+  ) => {
+    if (sortBy === criteria) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortBy(criteria)
+      setSortOrder('asc')
+    }
+  }
+
+  const filteredPlayers = playerData
+    .filter((player) =>
+      player.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      const aValue = a[sortBy]
+      const bValue = b[sortBy]
+      if (aValue < bValue) return sortOrder === 'asc' ? -1 : 1
+      if (aValue > bValue) return sortOrder === 'asc' ? 1 : -1
+      return 0
+    })
 
   const getFlagImagePath = (nationality: string | null): string => {
     switch (nationality) {
@@ -591,22 +659,72 @@ const Page: React.FC = () => {
 
   return (
     <>
-      <div className='search-container'>
-        <TextField
-          variant='outlined'
-          placeholder='Search by player name'
-          onChange={handleSearchChange}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position='end'>
-                <IconButton edge='end'>
-                  <GridSearchIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          fullWidth
-        />
+      <div className='filters'>
+        <div className='search-container'>
+          <TextField
+            variant='outlined'
+            placeholder='Search by player name'
+            onChange={handleSearchChange}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position='end'>
+                  <IconButton edge='end'>
+                    <GridSearchIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            fullWidth
+          />
+        </div>
+        <div className='sort-buttons'>
+          <Button
+            className='sort-button'
+            onClick={() => handleSortChange('name')}
+          >
+            Sort by Name{' '}
+            {sortBy === 'name' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </Button>
+          <Button
+            className='sort-button'
+            onClick={() => handleSortChange('Flexibility')}
+          >
+            Sort by Flexibility{' '}
+            {sortBy === 'Flexibility' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </Button>
+          <Button
+            className='sort-button'
+            onClick={() => handleSortChange('Speed')}
+          >
+            Sort by Speed{' '}
+            {sortBy === 'Speed' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </Button>
+          <Button
+            className='sort-button'
+            onClick={() => handleSortChange('Aim')}
+          >
+            Sort by Aim {sortBy === 'Aim' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </Button>
+          <Button
+            className='sort-button'
+            onClick={() => handleSortChange('ACC')}
+          >
+            Sort by ACC {sortBy === 'ACC' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </Button>
+          <Button
+            className='sort-button'
+            onClick={() => handleSortChange('ADP')}
+          >
+            Sort by ADP {sortBy === 'ADP' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </Button>
+          <Button
+            className='sort-button'
+            onClick={() => handleSortChange('overall')}
+          >
+            Sort by Overall{' '}
+            {sortBy === 'overall' && (sortOrder === 'asc' ? '↑' : '↓')}
+          </Button>
+        </div>
       </div>
       <div className='cards-container'>
         {filteredPlayers.map((player) => (
@@ -677,6 +795,13 @@ const Page: React.FC = () => {
                   </div>
                 </div>
               </div>
+              {player.OBS && (
+                <div className='player-info'>
+                  <div className='player-observation'>
+                    <span>{player.OBS}</span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ))}
