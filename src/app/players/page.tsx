@@ -874,11 +874,29 @@ const Page: React.FC = () => {
           <Button
             className='sort-button'
             onClick={() => handleSortChange('Flexibility')}
+            sx={{
+              textDecoration: 'none',
+              color: 'white',
+              backgroundColor: '#1976d2',
+              '& a': {
+                textDecoration: 'none',
+                color: 'white',
+              },
+            }}
           >
             Sort by Flexibility{' '}
             {sortBy === 'Flexibility' && (sortOrder === 'asc' ? '↑' : '↓')}
           </Button>
           <Button
+            sx={{
+              textDecoration: 'none',
+              color: 'white',
+              backgroundColor: '#1976d2',
+              '& a': {
+                textDecoration: 'none',
+                color: 'white',
+              },
+            }}
             className='sort-button'
             onClick={() => handleSortChange('Speed')}
           >
@@ -886,24 +904,60 @@ const Page: React.FC = () => {
             {sortBy === 'Speed' && (sortOrder === 'asc' ? '↑' : '↓')}
           </Button>
           <Button
+            sx={{
+              textDecoration: 'none',
+              color: 'white',
+              backgroundColor: '#1976d2',
+              '& a': {
+                textDecoration: 'none',
+                color: 'white',
+              },
+            }}
             className='sort-button'
             onClick={() => handleSortChange('Aim')}
           >
             Sort by Aim {sortBy === 'Aim' && (sortOrder === 'asc' ? '↑' : '↓')}
           </Button>
           <Button
+            sx={{
+              textDecoration: 'none',
+              color: 'white',
+              backgroundColor: '#1976d2',
+              '& a': {
+                textDecoration: 'none',
+                color: 'white',
+              },
+            }}
             className='sort-button'
             onClick={() => handleSortChange('ACC')}
           >
             Sort by ACC {sortBy === 'ACC' && (sortOrder === 'asc' ? '↑' : '↓')}
           </Button>
           <Button
+            sx={{
+              textDecoration: 'none',
+              color: 'white',
+              backgroundColor: '#1976d2',
+              '& a': {
+                textDecoration: 'none',
+                color: 'white',
+              },
+            }}
             className='sort-button'
             onClick={() => handleSortChange('ADP')}
           >
             Sort by ADP {sortBy === 'ADP' && (sortOrder === 'asc' ? '↑' : '↓')}
           </Button>
           <Button
+            sx={{
+              textDecoration: 'none',
+              color: 'white',
+              backgroundColor: '#1976d2',
+              '& a': {
+                textDecoration: 'none',
+                color: 'white',
+              },
+            }}
             className='sort-button'
             onClick={() => handleSortChange('overall')}
           >
