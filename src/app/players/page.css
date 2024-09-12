@@ -104,6 +104,7 @@ body:after {
   padding: 3.8rem 0;
   margin: 0 auto;
   box-sizing: border-box;
+	z-index: 0;
 }
 
 .fut-player-card .player-card-top {
@@ -125,15 +126,20 @@ body:after {
 
 .fut-player-card .player-card-top .player-master-info .player-rating {
 	font-size: 2rem;
+	position: relative;
+	z-index: 2;
 }
 
 .fut-player-card .player-card-top .player-master-info .player-position {
 	font-size: 1.4rem;
+	position: relative;
+	z-index: 2;
 }
 
 .fut-player-card .player-card-top .player-master-info .player-nation {
 	display: block;
 	width: 2rem;
+	z-index: 2;
 	height: 25px;
 	margin: 0.3rem 0;
 }
@@ -168,6 +174,8 @@ body:after {
 	height: 200px;
 	margin: 0 auto;
 	overflow: hidden;
+	position: relative;
+	z-index: 1;
 }
 
 .fut-player-card .player-card-top .player-picture img {

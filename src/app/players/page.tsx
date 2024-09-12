@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import './page.css'
 import Image from 'next/image'
+//flag countries
 import Brazil from '../../images/Brazil.svg'
 import Argentina from '../../images/Argentina.svg'
 import Canada from '../../images/Canada.svg'
@@ -20,9 +21,17 @@ import USA from '../../images/USA.svg'
 import Palestine from '../../images/Palestine.png'
 import Colombia from '../../images/Colombia.png'
 import Germany from '../../images/Germany.png'
+
+//guilds
 import LS from '../../images/guilds/LS.png'
 import Moonshine from '../../images/guilds/Moonshine.png'
 import Nightfall from '../../images/guilds/Nightfall.png'
+import unemployed from '../../images/guilds/unemployed.png'
+import Profile from '../../images/people/Profile.png'
+
+//profiles
+import Alfa from '../../images/people/Alfa.png'
+
 import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
 
@@ -289,7 +298,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Terami',
-    guild: 'Moonshine',
+    guild: 'unemployed',
     nationality: 'Ukraine',
     sector: null,
     playstyle: 'PAS',
@@ -304,7 +313,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Ren',
-    guild: null,
+    guild: 'unemployed',
     nationality: 'Argentina',
     sector: null,
     playstyle: 'PAS',
@@ -319,7 +328,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Over1kBlades',
-    guild: 'Moonshine',
+    guild: 'unemployed',
     nationality: 'Russia',
     sector: null,
     playstyle: 'PAS',
@@ -379,7 +388,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Zangetsu',
-    guild: null,
+    guild: 'unemployed',
     nationality: 'Italy',
     sector: null,
     playstyle: 'MIX',
@@ -394,7 +403,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Jade',
-    guild: null,
+    guild: 'unemployed',
     nationality: 'France',
     sector: null,
     playstyle: 'MIX',
@@ -424,7 +433,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Thyme',
-    guild: null,
+    guild: 'unemployed',
     nationality: 'Canada',
     sector: null,
     playstyle: 'AGGRO',
@@ -469,7 +478,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Syal',
-    guild: 'Moonshine',
+    guild: 'unemployed',
     nationality: 'Ukraine',
     sector: null,
     playstyle: 'MIX',
@@ -601,6 +610,15 @@ const Page: React.FC = () => {
       return 0
     })
 
+  const getProfileImagePath = (name: string): string => {
+    switch (name) {
+      case 'Alfa':
+        return Alfa.src
+      default:
+        return Profile.src
+    }
+  }
+
   const getFlagImagePath = (nationality: string | null): string => {
     switch (nationality) {
       case 'Brazil':
@@ -652,6 +670,8 @@ const Page: React.FC = () => {
         return Nightfall.src
       case 'Moonshine':
         return Moonshine.src
+      case 'unemployed':
+        return unemployed.src
       default:
         return '/images/default-club.png'
     }
@@ -755,7 +775,15 @@ const Page: React.FC = () => {
                   />
                 </div>
               </div>
-              <div className='player-picture'></div>
+              <div className='player-picture'>
+                <Image
+                  src={getProfileImagePath(player.name)}
+                  alt='Messi'
+                  draggable='false'
+                  width={200}
+                  height={200}
+                />
+              </div>
             </div>
             <div className='player-card-bottom'>
               <div className='player-info'>
