@@ -364,7 +364,7 @@ const playerData: Player[] = [
   {
     name: 'Lunicia',
     guild: 'Nightfall',
-    nationality: 'EUA',
+    nationality: 'USA',
     sector: null,
     playstyle: 'PAS',
     alignment: null,
@@ -826,6 +826,7 @@ const Page: React.FC = () => {
 
   return (
     <>
+      {/*Template by: @selimdoyranli*/}
       <Navbar toolbar={`Players (${playerData.length})`} />
       <div className='filters'>
         <div className='search-container'>

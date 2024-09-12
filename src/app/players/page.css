@@ -26,7 +26,7 @@ body {
 }
 
 body:after {
-	content: 'Template by: @selimdoyranli';
+	content: 'Note: This cards are gonna to be updated for me using the duels and informations that I could get.';
 	font-size: 1rem;
 	color: #aaa;
 	position: fixed;
