@@ -36,6 +36,8 @@ import unemployed from '../../images/guilds/unemployed.png'
 import Alfa from '../../images/people/Alfa.png'
 import Profile from '../../images/people/Profile.png'
 import polski from '../../images/people/polski.jpg'
+import A2 from '../../images/people/A2_1.png'
+import Tadex from '../../images/people/Tadex.gif'
 
 import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
@@ -753,6 +755,10 @@ const Page: React.FC = () => {
         return polski.src
       case 'Over1kBlades':
         return polski.src
+      case 'A2':
+        return A2.src
+      case 'Tadex':
+        return Tadex.src
       default:
         return Profile.src
     }
@@ -804,6 +810,30 @@ const Page: React.FC = () => {
         return Georgia.src
       default:
         return '/images/default-flag.png'
+    }
+  }
+
+  const playerTier = (overall: number): string => {
+    if (overall >= 96) {
+      return 'X'
+    } else if (overall >= 93) {
+      return 'SS+'
+    } else if (overall >= 90) {
+      return 'SS'
+    } else if (overall >= 87) {
+      return 'S'
+    } else if (overall >= 85) {
+      return 'A+'
+    } else if (overall >= 83) {
+      return 'A'
+    } else if (overall >= 80) {
+      return 'B+'
+    } else if (overall >= 78) {
+      return 'B'
+    } else if (overall >= 75) {
+      return 'C+'
+    } else {
+      return 'C'
     }
   }
 
@@ -977,7 +1007,7 @@ const Page: React.FC = () => {
                     <span>{player.overall}</span>
                   </div>
                   <div className='player-position'>
-                    <span>{player.playstyle}</span>
+                    <span>{playerTier(player.overall)}</span>
                   </div>
                   <div className='player-nation'>
                     <Image
