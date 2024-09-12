@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
         <Container
           maxWidth='lg'
           sx={{
+            position: 'fixed',
             display: 'flex',
             justifyContent: 'space-between',
             textDecoration: 'none',
@@ -29,7 +30,7 @@ const Navbar: React.FC = () => {
           }}
         >
           <Typography variant='h6' component='div'>
-            Bomb Wiki
+            Bombastic
           </Typography>
           <Grid
             xs={4}

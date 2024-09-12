@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import './page.css'
 import Image from 'next/image'
 import Brazil from '../../images/Brazil.svg'
@@ -17,10 +17,19 @@ import Turkey from '../../images/Turkey.svg'
 import UAE from '../../images/UAE.svg'
 import Ukraine from '../../images/Ukraine.svg'
 import USA from '../../images/USA.svg'
+import Palestine from '../../images/Palestine.png'
+import Colombia from '../../images/Colombia.png'
+import Germany from '../../images/Germany.png'
+import LS from '../../images/guilds/LS.png'
+import Moonshine from '../../images/guilds/Moonshine.png'
+import Nightfall from '../../images/guilds/Nightfall.png'
+import { IconButton, InputAdornment, TextField } from '@mui/material'
+import { GridSearchIcon } from '@mui/x-data-grid'
 
 const playerData = [
   {
     name: 'Suka',
+    guild: 'Moonshine',
     nationality: 'Russia',
     sector: null,
     playstyle: 'MIX',
@@ -35,6 +44,7 @@ const playerData = [
   },
   {
     name: 'Miro',
+    guild: 'Moonshine',
     nationality: 'Russia',
     sector: null,
     playstyle: 'PAS',
@@ -49,7 +59,8 @@ const playerData = [
   },
   {
     name: 'Rian',
-    nationality: 'Argentina',
+    guild: null,
+    nationality: 'Colombia',
     sector: null,
     playstyle: 'PAS',
     alignment: null,
@@ -63,6 +74,7 @@ const playerData = [
   },
   {
     name: 'Rion',
+    guild: 'Nightfall',
     nationality: 'Canada',
     sector: null,
     playstyle: 'MIX',
@@ -77,6 +89,7 @@ const playerData = [
   },
   {
     name: 'Yumi',
+    guild: 'Nightfall',
     nationality: 'France',
     sector: null,
     playstyle: 'MIX',
@@ -91,7 +104,8 @@ const playerData = [
   },
   {
     name: 'A2',
-    nationality: 'UAE',
+    guild: 'LS',
+    nationality: 'Palestine',
     sector: null,
     playstyle: 'AGGRO',
     alignment: null,
@@ -105,6 +119,7 @@ const playerData = [
   },
   {
     name: 'Alfa',
+    guild: 'LS',
     nationality: 'Brazil',
     sector: null,
     playstyle: 'AGGRO',
@@ -119,6 +134,7 @@ const playerData = [
   },
   {
     name: 'Seised',
+    guild: 'LS',
     nationality: 'Mexico',
     sector: null,
     playstyle: 'AGGRO',
@@ -133,6 +149,7 @@ const playerData = [
   },
   {
     name: 'Zender (Sender)',
+    guild: 'Nightfall',
     nationality: 'Russia',
     sector: null,
     playstyle: 'PAS',
@@ -147,6 +164,7 @@ const playerData = [
   },
   {
     name: 'Tadex',
+    guild: 'LS',
     nationality: 'Slovenia',
     sector: null,
     playstyle: 'AGGRO',
@@ -161,6 +179,7 @@ const playerData = [
   },
   {
     name: 'Adrian',
+    guild: 'Nightfall',
     nationality: 'Romania',
     sector: null,
     playstyle: 'PAS',
@@ -175,6 +194,7 @@ const playerData = [
   },
   {
     name: 'Hespera',
+    guild: 'LS',
     nationality: 'USA',
     sector: null,
     playstyle: 'MIX',
@@ -189,6 +209,7 @@ const playerData = [
   },
   {
     name: 'Hedinn',
+    guild: 'LS',
     nationality: 'Turkey',
     sector: null,
     playstyle: 'MIX',
@@ -204,6 +225,7 @@ const playerData = [
   },
   {
     name: 'Plep',
+    guild: 'LS',
     nationality: 'Philipines',
     sector: null,
     playstyle: 'AGGRO',
@@ -219,6 +241,7 @@ const playerData = [
   },
   {
     name: 'Annis',
+    guild: 'LS',
     nationality: 'Poland',
     sector: null,
     playstyle: 'MIX',
@@ -233,6 +256,7 @@ const playerData = [
   },
   {
     name: 'Pivo',
+    guild: 'Moonshine',
     nationality: 'Russia',
     sector: null,
     playstyle: 'PAS',
@@ -247,6 +271,7 @@ const playerData = [
   },
   {
     name: 'Terami',
+    guild: 'Moonshine',
     nationality: 'Ukraine',
     sector: null,
     playstyle: 'PAS',
@@ -261,6 +286,7 @@ const playerData = [
   },
   {
     name: 'Ren',
+    guild: null,
     nationality: 'Argentina',
     sector: null,
     playstyle: 'PAS',
@@ -275,6 +301,7 @@ const playerData = [
   },
   {
     name: 'Over1kBlades',
+    guild: 'Moonshine',
     nationality: 'Russia',
     sector: null,
     playstyle: 'PAS',
@@ -289,6 +316,7 @@ const playerData = [
   },
   {
     name: 'Renterik',
+    guild: 'Moonshine',
     nationality: 'Russia',
     sector: null,
     playstyle: 'PAS',
@@ -303,6 +331,7 @@ const playerData = [
   },
   {
     name: 'Lunicia',
+    guild: 'Nightfall',
     nationality: null,
     sector: null,
     playstyle: 'PAS',
@@ -317,6 +346,7 @@ const playerData = [
   },
   {
     name: 'Jenox',
+    guild: 'Nightfall',
     nationality: 'Argentina',
     sector: null,
     playstyle: 'PAS',
@@ -331,6 +361,7 @@ const playerData = [
   },
   {
     name: 'Zangetsu',
+    guild: null,
     nationality: 'Italy',
     sector: null,
     playstyle: 'MIX',
@@ -345,6 +376,7 @@ const playerData = [
   },
   {
     name: 'Jade',
+    guild: null,
     nationality: 'France',
     sector: null,
     playstyle: 'MIX',
@@ -359,6 +391,7 @@ const playerData = [
   },
   {
     name: 'Aliya',
+    guild: 'LS',
     nationality: 'USA',
     sector: null,
     playstyle: 'MIX',
@@ -373,6 +406,7 @@ const playerData = [
   },
   {
     name: 'Thyme',
+    guild: null,
     nationality: 'Canada',
     sector: null,
     playstyle: 'AGGRO',
@@ -387,6 +421,7 @@ const playerData = [
   },
   {
     name: 'Lunnarii',
+    guild: 'Nightfall',
     nationality: 'USA',
     sector: null,
     playstyle: 'PAS',
@@ -401,6 +436,7 @@ const playerData = [
   },
   {
     name: 'Paladino',
+    guild: 'Nightfall',
     nationality: 'Brazil',
     sector: null,
     playstyle: 'MIX',
@@ -415,6 +451,7 @@ const playerData = [
   },
   {
     name: 'Syal',
+    guild: 'Moonshine',
     nationality: 'Ukraine',
     sector: null,
     playstyle: 'MIX',
@@ -427,50 +464,152 @@ const playerData = [
     PS: 80,
     overall: 84,
   },
+  {
+    name: 'Reanu Keeves',
+    guild: 'LS',
+    nationality: 'Germany',
+    sector: null,
+    playstyle: null,
+    Flexibility: 75,
+    Speed: 80,
+    Aim: 80,
+    ACC: 72,
+    ADP: 67,
+    PS: 68,
+    overall: 73,
+  },
+  {
+    name: 'Asura',
+    guild: 'Nightfall',
+    nationality: 'USA',
+    sector: null,
+    playstyle: 'PAS',
+    Flexibility: 84,
+    Speed: 95,
+    Aim: 90,
+    ACC: 91,
+    ADP: 87,
+    PS: 86,
+    overall: 89,
+  },
+  {
+    name: 'Leach',
+    guild: 'Nightfall',
+    nationality: 'USA',
+    sector: null,
+    playstyle: 'MIX',
+    Flexibility: 80,
+    Speed: 78,
+    Aim: 81,
+    ACC: 82,
+    ADP: 76,
+    PS: 79,
+    overall: 79,
+  },
+  {
+    name: 'Ryd',
+    guild: 'Nightfall',
+    nationality: 'Italy',
+    sector: null,
+    playstyle: 'PAS',
+    Flexibility: 79,
+    Speed: 81,
+    Aim: 85,
+    ACC: 90,
+    ADP: 77,
+    PS: 80,
+    overall: 81,
+  },
 ]
 
 const Page: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value)
+  }
+
+  const filteredPlayers = playerData.filter((player) =>
+    player.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   const getFlagImagePath = (nationality: string | null): string => {
     switch (nationality) {
       case 'Brazil':
-        return Brazil
+        return Brazil.src
       case 'Argentina':
-        return Argentina
+        return Argentina.src
       case 'Canada':
-        return Canada
+        return Canada.src
       case 'France':
-        return France
+        return France.src
       case 'Italy':
-        return Italy
+        return Italy.src
       case 'Mexico':
-        return Mexico
+        return Mexico.src
       case 'Philipines':
-        return Philipines
+        return Philipines.src
       case 'Poland':
-        return Poland
+        return Poland.src
       case 'Romania':
-        return Romania
+        return Romania.src
       case 'Russia':
-        return Russia
+        return Russia.src
       case 'Slovenia':
-        return Slovenia
+        return Slovenia.src
       case 'Turkey':
-        return Turkey
+        return Turkey.src
       case 'UAE':
-        return UAE
+        return UAE.src
       case 'Ukraine':
-        return Ukraine
+        return Ukraine.src
       case 'USA':
-        return USA
+        return USA.src
+      case 'Colombia':
+        return Colombia.src
+      case 'Germany':
+        return Germany.src
+      case 'Palestine':
+        return Palestine.src
       default:
         return '/images/default-flag.png'
     }
   }
 
+  const getClubImagePath = (club: string | null): string => {
+    switch (club) {
+      case 'LS':
+        return LS.src
+      case 'Nightfall':
+        return Nightfall.src
+      case 'Moonshine':
+        return Moonshine.src
+      default:
+        return '/images/default-club.png'
+    }
+  }
+
   return (
     <>
+      <div className='search-container'>
+        <TextField
+          variant='outlined'
+          placeholder='Search by player name'
+          onChange={handleSearchChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton edge='end'>
+                  <GridSearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          fullWidth
+        />
+      </div>
       <div className='cards-container'>
-        {playerData.map((player) => (
+        {filteredPlayers.map((player) => (
           <div className='fut-player-card' key={player.name}>
             <div className='player-card-top'>
               <div className='player-master-info'>
@@ -482,19 +621,21 @@ const Page: React.FC = () => {
                 </div>
                 <div className='player-nation'>
                   <Image
-                    src={getFlagImagePath(player.nationality)}
+                    src={getFlagImagePath(player.nationality) || ''}
                     alt={`${player.nationality} flag`}
                     width={350}
                     height={250}
                   />
                 </div>
-                {/* <div className='player-club'>
+                <div className='player-club'>
                   <Image
-                    src='https://selimdoyranli.com/cdn/fut-player-card/img/barcelona.svg'
-                    alt='Barcelona'
+                    src={getClubImagePath(player.guild)}
+                    alt={player.guild || ''}
                     draggable='false'
+                    width={40}
+                    height={40}
                   />
-                </div> */}
+                </div>
               </div>
               <div className='player-picture'></div>
             </div>
