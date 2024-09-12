@@ -10,6 +10,7 @@ import {
 } from '@mui/material'
 import { styled } from '@mui/system'
 import Link from 'next/link'
+import '../app/players/page.css'
 
 const NavbarContainer = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.primary,
@@ -46,14 +47,10 @@ const Navbar: React.FC<NavbarProps> = ({ toolbar }) => {
             }}
           >
             <Link href='/'>
-              <Button>
-                <a>Home</a>
-              </Button>
+              <Button className='navbar-button'>Home</Button>
             </Link>
             <Link href='/players'>
-              <Button>
-                <a>Players</a>
-              </Button>
+              <Button className='navbar-button'>Players</Button>
             </Link>
           </Grid>
         </Container>

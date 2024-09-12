@@ -862,94 +862,103 @@ const Page: React.FC = () => {
           </Button>
         </div>
       </div>
-      <div className='cards-container'>
-        {filteredPlayers.map((player) => (
-          <div className='fut-player-card' key={player.name}>
-            <div className='player-card-top'>
-              <div className='player-master-info'>
-                <div className='player-rating'>
-                  <span>{player.overall}</span>
+      {filteredPlayers.length > 0 && (
+        <div className='cards-container'>
+          {filteredPlayers.map((player) => (
+            <div className='fut-player-card' key={player.name}>
+              <div className='player-card-top'>
+                <div className='player-master-info'>
+                  <div className='player-rating'>
+                    <span>{player.overall}</span>
+                  </div>
+                  <div className='player-position'>
+                    <span>{player.playstyle}</span>
+                  </div>
+                  <div className='player-nation'>
+                    <Image
+                      src={getFlagImagePath(player.nationality) || ''}
+                      alt={`${player.nationality} flag`}
+                      width={350}
+                      height={250}
+                    />
+                  </div>
+                  <div className='player-club'>
+                    <Image
+                      src={getClubImagePath(player.guild)}
+                      alt={player.guild || ''}
+                      draggable='false'
+                      width={40}
+                      height={40}
+                    />
+                  </div>
                 </div>
-                <div className='player-position'>
-                  <span>{player.playstyle}</span>
-                </div>
-                <div className='player-nation'>
+                <div className='player-picture'>
                   <Image
-                    src={getFlagImagePath(player.nationality) || ''}
-                    alt={`${player.nationality} flag`}
-                    width={350}
-                    height={250}
-                  />
-                </div>
-                <div className='player-club'>
-                  <Image
-                    src={getClubImagePath(player.guild)}
-                    alt={player.guild || ''}
+                    src={getProfileImagePath(player.name)}
+                    alt='Messi'
                     draggable='false'
-                    width={40}
-                    height={40}
+                    width={200}
+                    height={200}
                   />
                 </div>
               </div>
-              <div className='player-picture'>
-                <Image
-                  src={getProfileImagePath(player.name)}
-                  alt='Messi'
-                  draggable='false'
-                  width={200}
-                  height={200}
-                />
-              </div>
-            </div>
-            <div className='player-card-bottom'>
-              <div className='player-info'>
-                <div className='player-name'>
-                  <span>{player.name}</span>
-                </div>
-                <div className='player-features'>
-                  <div className='player-features-col'>
-                    <span>
-                      <div className='player-feature-value'>
-                        {player.Flexibility}
-                      </div>
-                      <div className='player-feature-title'>FLX</div>
-                    </span>
-                    <span>
-                      <div className='player-feature-value'>{player.Speed}</div>
-                      <div className='player-feature-title'>SPD</div>
-                    </span>
-                    <span>
-                      <div className='player-feature-value'>{player.Aim}</div>
-                      <div className='player-feature-title'>AIM</div>
-                    </span>
-                  </div>
-                  <div className='player-features-col'>
-                    <span>
-                      <div className='player-feature-value'>{player.ACC}</div>
-                      <div className='player-feature-title'>ACC</div>
-                    </span>
-                    <span>
-                      <div className='player-feature-value'>{player.ADP}</div>
-                      <div className='player-feature-title'>ADP</div>
-                    </span>
-                    <span>
-                      <div className='player-feature-value'>{player.PS}</div>
-                      <div className='player-feature-title'>POS</div>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {player.OBS && (
+              <div className='player-card-bottom'>
                 <div className='player-info'>
-                  <div className='player-observation'>
-                    <span>{player.OBS}</span>
+                  <div className='player-name'>
+                    <span>{player.name}</span>
+                  </div>
+                  <div className='player-features'>
+                    <div className='player-features-col'>
+                      <span>
+                        <div className='player-feature-value'>
+                          {player.Flexibility}
+                        </div>
+                        <div className='player-feature-title'>FLX</div>
+                      </span>
+                      <span>
+                        <div className='player-feature-value'>
+                          {player.Speed}
+                        </div>
+                        <div className='player-feature-title'>SPD</div>
+                      </span>
+                      <span>
+                        <div className='player-feature-value'>{player.Aim}</div>
+                        <div className='player-feature-title'>AIM</div>
+                      </span>
+                    </div>
+                    <div className='player-features-col'>
+                      <span>
+                        <div className='player-feature-value'>{player.ACC}</div>
+                        <div className='player-feature-title'>ACC</div>
+                      </span>
+                      <span>
+                        <div className='player-feature-value'>{player.ADP}</div>
+                        <div className='player-feature-title'>ADP</div>
+                      </span>
+                      <span>
+                        <div className='player-feature-value'>{player.PS}</div>
+                        <div className='player-feature-title'>POS</div>
+                      </span>
+                    </div>
                   </div>
                 </div>
-              )}
+                {player.OBS && (
+                  <div className='player-info'>
+                    <div className='player-observation'>
+                      <span>{player.OBS}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
+      {filteredPlayers.length === 0 && (
+        <div className='no-players'>
+          <span>No players found with the given search criteria.</span>
+        </div>
+      )}
     </>
   )
 }
