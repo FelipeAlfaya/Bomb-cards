@@ -27,15 +27,15 @@ import LS from '../../images/guilds/LS.png'
 import Moonshine from '../../images/guilds/Moonshine.png'
 import Nightfall from '../../images/guilds/Nightfall.png'
 import unemployed from '../../images/guilds/unemployed.png'
-import Profile from '../../images/people/Profile.png'
 
 //profiles
 import Alfa from '../../images/people/Alfa.png'
+import Profile from '../../images/people/Profile.png'
+import polski from '../../images/people/polski.jpg'
 
 import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
 
-// Tipagem para os jogadores
 interface Player {
   name: string
   guild: string | null
@@ -566,6 +566,36 @@ const playerData: Player[] = [
     PS: 84,
     overall: 82,
   },
+  {
+    name: 'Cat',
+    guild: 'Nightfall',
+    nationality: 'USA',
+    sector: null,
+    playstyle: '',
+    alignment: null,
+    Flexibility: 70,
+    Speed: 69,
+    Aim: 68,
+    ACC: 74,
+    ADP: 68,
+    PS: 69,
+    overall: 68,
+  },
+  {
+    name: 'BRuki',
+    guild: 'LS',
+    nationality: 'Brazil',
+    sector: null,
+    playstyle: 'AGGRO',
+    alignment: null,
+    Flexibility: 78,
+    Speed: 80,
+    Aim: 78,
+    ACC: 76,
+    ADP: 70,
+    PS: 75,
+    overall: 76,
+  },
 ]
 
 const Page: React.FC = () => {
@@ -614,6 +644,20 @@ const Page: React.FC = () => {
     switch (name) {
       case 'Alfa':
         return Alfa.src
+      case 'Suka':
+        return polski.src
+      case 'Miro':
+        return polski.src
+      case 'Terami':
+        return polski.src
+      case 'Pivo':
+        return polski.src
+      case 'Zender (Sender)':
+        return polski.src
+      case 'Renterik':
+        return polski.src
+      case 'Over1kBlades':
+        return polski.src
       default:
         return Profile.src
     }
