@@ -29,6 +29,7 @@ import Germany from '../../images/Germany.png'
 import LS from '../../images/guilds/LS.png'
 import Moonshine from '../../images/guilds/Moonshine.png'
 import Nightfall from '../../images/guilds/Nightfall.png'
+import Atomix from '../../images/guilds/Atomix.png'
 import unemployed from '../../images/guilds/unemployed.png'
 
 //profiles
@@ -302,7 +303,7 @@ const playerData: Player[] = [
   },
   {
     name: 'Terami',
-    guild: 'unemployed',
+    guild: 'Atomix',
     nationality: 'Ukraine',
     sector: null,
     playstyle: 'PAS',
@@ -660,6 +661,36 @@ const playerData: Player[] = [
     PS: 82,
     overall: 81,
   },
+  {
+    name: 'Sirzechs',
+    guild: 'Atomix',
+    nationality: 'Brazil',
+    sector: null,
+    playstyle: 'PAS',
+    alignment: null,
+    Flexibility: 75,
+    Speed: 78,
+    Aim: 77,
+    ACC: 72,
+    ADP: 70,
+    PS: 72,
+    overall: 73,
+  },
+  {
+    name: 'Kuze',
+    guild: 'unemployed',
+    nationality: 'Argentina',
+    sector: null,
+    playstyle: 'PAS',
+    alignment: null,
+    Flexibility: 78,
+    Speed: 78,
+    Aim: 80,
+    ACC: 83,
+    ADP: 84,
+    PS: 82,
+    overall: 80,
+  },
 ]
 
 const Page: React.FC = () => {
@@ -784,6 +815,8 @@ const Page: React.FC = () => {
         return Nightfall.src
       case 'Moonshine':
         return Moonshine.src
+      case 'Atomix':
+        return Atomix.src
       case 'unemployed':
         return unemployed.src
       default:

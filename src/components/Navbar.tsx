@@ -47,7 +47,19 @@ const Navbar: React.FC<NavbarProps> = ({ toolbar }) => {
             }}
           >
             <Link href='/'>
-              <Button className='navbar-button'>Home</Button>
+              <Button
+                className='navbar-button'
+                sx={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  '& a': {
+                    textDecoration: 'none',
+                    color: 'white',
+                  },
+                }}
+              >
+                Home
+              </Button>
             </Link>
             <Link href='/players'>
               <Button className='navbar-button'>Players</Button>
