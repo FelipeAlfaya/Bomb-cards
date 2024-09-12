@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import './page.css'
-import { PlayerCardProps } from './interfaces/types'
 import Image from 'next/image'
 import Brazil from '../images/Brazil.svg'
 import Argentina from '../images/Argentina.svg'
@@ -430,7 +429,7 @@ const playerData = [
   },
 ]
 
-const Page: React.FC<PlayerCardProps> = ({ nationality }) => {
+const Page: React.FC = () => {
   const getFlagImagePath = (nationality: string | null): string => {
     switch (nationality) {
       case 'Brazil':
@@ -484,7 +483,7 @@ const Page: React.FC<PlayerCardProps> = ({ nationality }) => {
                 <div className='player-nation'>
                   <Image
                     src={getFlagImagePath(player.nationality)}
-                    alt={`${nationality} flag`}
+                    alt={`${player.nationality} flag`} // Fixed alt text
                     width={350}
                     height={250}
                   />
