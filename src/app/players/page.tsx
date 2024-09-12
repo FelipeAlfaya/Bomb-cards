@@ -13,6 +13,9 @@ import Philipines from '../../images/Philipines.svg'
 import Poland from '../../images/Poland.svg'
 import Romania from '../../images/Romania.svg'
 import Russia from '../../images/Russia.svg'
+import Serbia from '../../images/Serbia.png'
+import Dominican from '../../images/Dominican.png'
+import Georgia from '../../images/Georgia.png'
 import Slovenia from '../../images/Slovenia.svg'
 import Turkey from '../../images/Turkey.svg'
 import UAE from '../../images/UAE.svg'
@@ -35,6 +38,7 @@ import polski from '../../images/people/polski.jpg'
 
 import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
+import Navbar from '@/components/Navbar'
 
 interface Player {
   name: string
@@ -596,6 +600,66 @@ const playerData: Player[] = [
     PS: 75,
     overall: 76,
   },
+  {
+    name: 'Acros',
+    guild: 'LS',
+    nationality: 'USA',
+    sector: null,
+    playstyle: '',
+    alignment: null,
+    Flexibility: 78,
+    Speed: 81,
+    Aim: 83,
+    ACC: 75,
+    ADP: 70,
+    PS: 73,
+    overall: 76,
+  },
+  {
+    name: 'Yoda',
+    guild: 'unemployed',
+    nationality: 'Dominican',
+    sector: null,
+    playstyle: 'PAS',
+    alignment: null,
+    Flexibility: 68,
+    Speed: 70,
+    Aim: 69,
+    ACC: 70,
+    ADP: 65,
+    PS: 71,
+    overall: 68,
+  },
+  {
+    name: 'Sushi',
+    guild: 'unemployed',
+    nationality: 'Serbia',
+    sector: null,
+    playstyle: 'PAS',
+    alignment: null,
+    Flexibility: 65,
+    Speed: 62,
+    Aim: 65,
+    ACC: 68,
+    ADP: 66,
+    PS: 65,
+    overall: 65,
+  },
+  {
+    name: 'Blitz Comet',
+    guild: 'unemployed',
+    nationality: 'Georgia',
+    sector: null,
+    playstyle: 'MIX',
+    alignment: null,
+    Flexibility: 80,
+    Speed: 88,
+    Aim: 85,
+    ACC: 80,
+    ADP: 75,
+    PS: 82,
+    overall: 81,
+  },
 ]
 
 const Page: React.FC = () => {
@@ -701,6 +765,12 @@ const Page: React.FC = () => {
         return Germany.src
       case 'Palestine':
         return Palestine.src
+      case 'Serbia':
+        return Serbia.src
+      case 'Dominican':
+        return Dominican.src
+      case 'Georgia':
+        return Georgia.src
       default:
         return '/images/default-flag.png'
     }
@@ -723,12 +793,14 @@ const Page: React.FC = () => {
 
   return (
     <>
+      <Navbar toolbar={`Players (${playerData.length})`} />
       <div className='filters'>
         <div className='search-container'>
           <TextField
             variant='outlined'
             placeholder='Search by player name'
             onChange={handleSearchChange}
+            sx={{ width: '90%' }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position='end'>

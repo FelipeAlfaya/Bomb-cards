@@ -14,8 +14,11 @@ import Link from 'next/link'
 const NavbarContainer = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.primary,
 }))
+interface NavbarProps {
+  toolbar: string
+}
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<NavbarProps> = ({ toolbar }) => {
   return (
     <NavbarContainer position='fixed'>
       <Toolbar>
@@ -28,8 +31,8 @@ const Navbar: React.FC = () => {
             color: 'white',
           }}
         >
-          <Typography variant='h6' component='div' sx={{ postiion: 'fixed' }}>
-            Bombastic
+          <Typography variant='h6' component='div'>
+            {toolbar}
           </Typography>
           <Grid
             xs={4}

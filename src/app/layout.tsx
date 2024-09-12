@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import Navbar from '@/components/Navbar'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -20,10 +19,7 @@ export default function RootLayout({
           href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'
         />
       </head>
-      <body className={`antialiased`}>
-        <Navbar />
-        {children}
-      </body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   )
 }
