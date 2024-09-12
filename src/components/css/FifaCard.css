@@ -1,0 +1,30 @@
+.fifa-card {
+  background: linear-gradient(45deg, #282c34, #f5f5f5);
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.overall {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: gold;
+}
+
+.player-image {
+  position: relative;
+}
+
+.stats-section {
+  margin-top: 16px;
+}
+
+.stats-column {
+  flex-direction: column;
+}
+
+.stats-column p {
+  font-weight: bold;
+  color: #333;
+}
