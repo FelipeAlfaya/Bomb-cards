@@ -62,7 +62,19 @@ const Navbar: React.FC<NavbarProps> = ({ toolbar }) => {
               </Button>
             </Link>
             <Link href='/players'>
-              <Button className='navbar-button'>Players</Button>
+              <Button
+                className='navbar-button'
+                sx={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  '& a': {
+                    textDecoration: 'none',
+                    color: 'white',
+                  },
+                }}
+              >
+                Players
+              </Button>
             </Link>
           </Grid>
         </Container>

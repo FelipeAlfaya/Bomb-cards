@@ -833,15 +833,23 @@ const Page: React.FC = () => {
             variant='outlined'
             placeholder='Search by player name'
             onChange={handleSearchChange}
-            sx={{ width: '90%' }}
+            InputLabelProps={{
+              style: { color: 'white' },
+            }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position='end'>
                   <IconButton edge='end'>
-                    <GridSearchIcon />
+                    <GridSearchIcon sx={{ color: 'white' }} />
                   </IconButton>
                 </InputAdornment>
               ),
+              sx: {
+                borderColor: 'white',
+              },
+            }}
+            sx={{
+              input: { color: 'white', width: '100%' },
             }}
             fullWidth
           />
@@ -850,6 +858,15 @@ const Page: React.FC = () => {
           <Button
             className='sort-button'
             onClick={() => handleSortChange('name')}
+            sx={{
+              textDecoration: 'none',
+              color: 'white',
+              backgroundColor: '#1976d2',
+              '& a': {
+                textDecoration: 'none',
+                color: 'white',
+              },
+            }}
           >
             Sort by Name{' '}
             {sortBy === 'name' && (sortOrder === 'asc' ? '↑' : '↓')}
