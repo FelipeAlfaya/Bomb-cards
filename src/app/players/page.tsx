@@ -3,47 +3,50 @@ import React, { useState } from 'react'
 import './page.css'
 import Image from 'next/image'
 //flag countries
-import Brazil from '../../images/Brazil.svg'
-import Argentina from '../../images/Argentina.svg'
-import Canada from '../../images/Canada.svg'
-import France from '../../images/France.svg'
-import Italy from '../../images/Italy.svg'
-import Mexico from '../../images/Mexico.svg'
-import Philipines from '../../images/Philipines.svg'
-import Poland from '../../images/Poland.svg'
-import Romania from '../../images/Romania.svg'
-import Russia from '../../images/Russia.svg'
-import Serbia from '../../images/Serbia.png'
-import Dominican from '../../images/Dominican.png'
-import Georgia from '../../images/Georgia.png'
-import Slovenia from '../../images/Slovenia.svg'
-import Turkey from '../../images/Turkey.svg'
-import UAE from '../../images/UAE.svg'
-import Ukraine from '../../images/Ukraine.svg'
-import USA from '../../images/USA.svg'
-import Palestine from '../../images/Palestine.png'
-import Colombia from '../../images/Colombia.png'
-import Germany from '../../images/Germany.png'
+import Brazil from '@/images/Brazil.svg'
+import Argentina from '@/images/Argentina.svg'
+import Canada from '@/images/Canada.svg'
+import France from '@/images/France.svg'
+import Italy from '@/images/Italy.svg'
+import Mexico from '@/images/Mexico.svg'
+import Philipines from '@/images/Philipines.svg'
+import Poland from '@/images/Poland.svg'
+import Romania from '@/images/Romania.svg'
+import Russia from '@/images/Russia.svg'
+import Serbia from '@/images/Serbia.png'
+import Dominican from '@/images/Dominican.png'
+import Georgia from '@/images/Georgia.png'
+import Slovenia from '@/images/Slovenia.svg'
+import Turkey from '@/images/Turkey.svg'
+import UAE from '@/images/UAE.svg'
+import Ukraine from '@/images/Ukraine.svg'
+import USA from '@/images/USA.svg'
+import Palestine from '@/images/Palestine.png'
+import Colombia from '@/images/Colombia.png'
+import Germany from '@/images/Germany.png'
 
 //guilds
-import LS from '../../images/guilds/LS.png'
-import Moonshine from '../../images/guilds/Moonshine.png'
-import Nightfall from '../../images/guilds/Nightfall.png'
-import Atomix from '../../images/guilds/Atomix.png'
-import unemployed from '../../images/guilds/unemployed.png'
+import LS from '@/images/guilds/LS.png'
+import Moonshine from '@/images/guilds/Moonshine.png'
+import Nightfall from '@/images/guilds/Nightfall.png'
+import Atomix from '@/images/guilds/Atomix.png'
+import unemployed from '@/images/guilds/unemployed.png'
 
 //profiles
-import Alfa from '../../images/people/Alfa.png'
-import Profile from '../../images/people/Profile.png'
-import polski from '../../images/people/polski.jpg'
-import A2 from '../../images/people/A2_1.png'
-import Tadex from '../../images/people/Tadex.gif'
+import Alfa from '@/images/people/Alfa.png'
+import Profile from '@/images/people/Profile.png'
+import polski from '@/images/people/polski.jpg'
+import A2 from '@/images/people/A2_1.png'
+import Tadex from '@/images/people/Tadex.gif'
+import Hespera from '@/images/people/Hespera.png'
+import BRuki from '@/images/people/BRuki.png'
 
 import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
 import Navbar from '@/components/Navbar'
 
 interface Player {
+  id: string
   name: string
   guild: string | null
   nationality: string | null
@@ -62,6 +65,7 @@ interface Player {
 
 const playerData: Player[] = [
   {
+    id: '1',
     name: 'Suka',
     guild: 'Moonshine',
     nationality: 'Russia',
@@ -77,6 +81,7 @@ const playerData: Player[] = [
     overall: 88,
   },
   {
+    id: '2',
     name: 'Miro',
     guild: 'Moonshine',
     nationality: 'Russia',
@@ -92,6 +97,7 @@ const playerData: Player[] = [
     overall: 82,
   },
   {
+    id: '3',
     name: 'Rian',
     guild: 'unemployed',
     nationality: 'Colombia',
@@ -107,6 +113,7 @@ const playerData: Player[] = [
     overall: 77,
   },
   {
+    id: '4',
     name: 'Rion',
     guild: 'Nightfall',
     nationality: 'Canada',
@@ -122,6 +129,7 @@ const playerData: Player[] = [
     overall: 85,
   },
   {
+    id: '5',
     name: 'Yumi',
     guild: 'Nightfall',
     nationality: 'France',
@@ -137,6 +145,7 @@ const playerData: Player[] = [
     overall: 95,
   },
   {
+    id: '6',
     name: 'A2',
     guild: 'LS',
     nationality: 'Palestine',
@@ -152,6 +161,7 @@ const playerData: Player[] = [
     overall: 96,
   },
   {
+    id: '7',
     name: 'Alfa',
     guild: 'LS',
     nationality: 'Brazil',
@@ -167,6 +177,7 @@ const playerData: Player[] = [
     overall: 92,
   },
   {
+    id: '8',
     name: 'Seised',
     guild: 'LS',
     nationality: 'Mexico',
@@ -182,6 +193,7 @@ const playerData: Player[] = [
     overall: 91,
   },
   {
+    id: '9',
     name: 'Zender (Sender)',
     guild: 'Nightfall',
     nationality: 'Russia',
@@ -197,6 +209,7 @@ const playerData: Player[] = [
     overall: 89,
   },
   {
+    id: '10',
     name: 'Tadex',
     guild: 'LS',
     nationality: 'Slovenia',
@@ -212,6 +225,7 @@ const playerData: Player[] = [
     overall: 94,
   },
   {
+    id: '11',
     name: 'Adrian',
     guild: 'Nightfall',
     nationality: 'Romania',
@@ -227,6 +241,7 @@ const playerData: Player[] = [
     overall: 91,
   },
   {
+    id: '12',
     name: 'Hespera',
     guild: 'LS',
     nationality: 'USA',
@@ -242,6 +257,7 @@ const playerData: Player[] = [
     overall: 94,
   },
   {
+    id: '13',
     name: 'Hedinn',
     guild: 'LS',
     nationality: 'Turkey',
@@ -258,6 +274,7 @@ const playerData: Player[] = [
     OBS: "Didn't Play Enough to be 100% sure.",
   },
   {
+    id: '14',
     name: 'Plep',
     guild: 'LS',
     nationality: 'Philipines',
@@ -274,6 +291,7 @@ const playerData: Player[] = [
     OBS: "Didn't Play Enough to be 100% sure.",
   },
   {
+    id: '15',
     name: 'Annis',
     guild: 'LS',
     nationality: 'Poland',
@@ -289,6 +307,7 @@ const playerData: Player[] = [
     overall: 78,
   },
   {
+    id: '16',
     name: 'Pivo',
     guild: 'Moonshine',
     nationality: 'Russia',
@@ -304,6 +323,7 @@ const playerData: Player[] = [
     overall: 74,
   },
   {
+    id: '17',
     name: 'Terami',
     guild: 'Atomix',
     nationality: 'Ukraine',
@@ -319,6 +339,7 @@ const playerData: Player[] = [
     overall: 76,
   },
   {
+    id: '18',
     name: 'Ren',
     guild: 'unemployed',
     nationality: 'Argentina',
@@ -334,6 +355,7 @@ const playerData: Player[] = [
     overall: 83,
   },
   {
+    id: '19',
     name: 'Over1kBlades',
     guild: 'unemployed',
     nationality: 'Russia',
@@ -349,6 +371,7 @@ const playerData: Player[] = [
     overall: 77,
   },
   {
+    id: '20',
     name: 'Renterik',
     guild: 'Moonshine',
     nationality: 'Russia',
@@ -364,6 +387,7 @@ const playerData: Player[] = [
     overall: 72,
   },
   {
+    id: '21',
     name: 'Lunicia',
     guild: 'Nightfall',
     nationality: 'USA',
@@ -379,6 +403,7 @@ const playerData: Player[] = [
     overall: 76,
   },
   {
+    id: '22',
     name: 'Jenox',
     guild: 'Nightfall',
     nationality: 'Argentina',
@@ -394,6 +419,7 @@ const playerData: Player[] = [
     overall: 82,
   },
   {
+    id: '23',
     name: 'Zangetsu',
     guild: 'unemployed',
     nationality: 'Italy',
@@ -409,6 +435,7 @@ const playerData: Player[] = [
     overall: 89,
   },
   {
+    id: '24',
     name: 'Jade',
     guild: 'unemployed',
     nationality: 'France',
@@ -424,6 +451,7 @@ const playerData: Player[] = [
     overall: 83,
   },
   {
+    id: '25',
     name: 'Aliya',
     guild: 'LS',
     nationality: 'USA',
@@ -439,6 +467,7 @@ const playerData: Player[] = [
     overall: 77,
   },
   {
+    id: '26',
     name: 'Thyme',
     guild: 'unemployed',
     nationality: 'Canada',
@@ -454,6 +483,7 @@ const playerData: Player[] = [
     overall: 78,
   },
   {
+    id: '27',
     name: 'Lunnarii',
     guild: 'Nightfall',
     nationality: 'USA',
@@ -469,6 +499,7 @@ const playerData: Player[] = [
     overall: 79,
   },
   {
+    id: '28',
     name: 'Paladino',
     guild: 'Nightfall',
     nationality: 'Brazil',
@@ -484,6 +515,7 @@ const playerData: Player[] = [
     overall: 81,
   },
   {
+    id: '29',
     name: 'Syal',
     guild: 'unemployed',
     nationality: 'Ukraine',
@@ -499,6 +531,7 @@ const playerData: Player[] = [
     overall: 84,
   },
   {
+    id: '30',
     name: 'Reanu Keeves',
     guild: 'LS',
     nationality: 'Germany',
@@ -514,6 +547,7 @@ const playerData: Player[] = [
     overall: 73,
   },
   {
+    id: '31',
     name: 'Asura',
     guild: 'Nightfall',
     nationality: 'USA',
@@ -529,6 +563,7 @@ const playerData: Player[] = [
     overall: 89,
   },
   {
+    id: '32',
     name: 'Leach',
     guild: 'Nightfall',
     nationality: 'USA',
@@ -544,6 +579,7 @@ const playerData: Player[] = [
     overall: 79,
   },
   {
+    id: '33',
     name: 'Ryd',
     guild: 'Nightfall',
     nationality: 'Italy',
@@ -559,6 +595,7 @@ const playerData: Player[] = [
     overall: 81,
   },
   {
+    id: '34',
     name: 'Esdeath',
     guild: 'Nightfall',
     nationality: 'Philipines',
@@ -574,6 +611,7 @@ const playerData: Player[] = [
     overall: 82,
   },
   {
+    id: '35',
     name: 'Cat',
     guild: 'Nightfall',
     nationality: 'USA',
@@ -589,6 +627,7 @@ const playerData: Player[] = [
     overall: 68,
   },
   {
+    id: '36',
     name: 'BRuki',
     guild: 'LS',
     nationality: 'Italy',
@@ -604,6 +643,7 @@ const playerData: Player[] = [
     overall: 76,
   },
   {
+    id: '37',
     name: 'Acros',
     guild: 'LS',
     nationality: 'USA',
@@ -619,6 +659,7 @@ const playerData: Player[] = [
     overall: 76,
   },
   {
+    id: '38',
     name: 'Yoda',
     guild: 'unemployed',
     nationality: 'Dominican',
@@ -634,6 +675,7 @@ const playerData: Player[] = [
     overall: 68,
   },
   {
+    id: '39',
     name: 'Sushi',
     guild: 'unemployed',
     nationality: 'Serbia',
@@ -649,6 +691,7 @@ const playerData: Player[] = [
     overall: 65,
   },
   {
+    id: '40',
     name: 'Blitz Comet',
     guild: 'unemployed',
     nationality: 'Georgia',
@@ -664,6 +707,7 @@ const playerData: Player[] = [
     overall: 81,
   },
   {
+    id: '41',
     name: 'Sirzechs',
     guild: 'Atomix',
     nationality: 'Brazil',
@@ -679,6 +723,7 @@ const playerData: Player[] = [
     overall: 73,
   },
   {
+    id: '42',
     name: 'Kuze',
     guild: 'unemployed',
     nationality: 'Argentina',
@@ -759,6 +804,10 @@ const Page: React.FC = () => {
         return A2.src
       case 'Tadex':
         return Tadex.src
+      case 'BRuki':
+        return BRuki.src
+      case 'Hespera':
+        return Hespera.src
       default:
         return Profile.src
     }
