@@ -3,47 +3,47 @@ import React, { useState } from 'react'
 import './page.css'
 import Image from 'next/image'
 //flag countries
-import Brazil from '@/images/Brazil.svg'
-import Argentina from '@/images/Argentina.svg'
-import Canada from '@/images/Canada.svg'
-import France from '@/images/France.svg'
-import Italy from '@/images/Italy.svg'
-import Mexico from '@/images/Mexico.svg'
-import Philipines from '@/images/Philipines.svg'
-import Poland from '@/images/Poland.svg'
-import Romania from '@/images/Romania.svg'
-import Russia from '@/images/Russia.svg'
-import Serbia from '@/images/Serbia.png'
-import Dominican from '@/images/Dominican.png'
-import Georgia from '@/images/Georgia.png'
-import Slovenia from '@/images/Slovenia.svg'
-import Turkey from '@/images/Turkey.svg'
-import UAE from '@/images/UAE.svg'
-import Ukraine from '@/images/Ukraine.svg'
-import USA from '@/images/USA.svg'
-import Palestine from '@/images/Palestine.png'
-import Colombia from '@/images/Colombia.png'
-import Germany from '@/images/Germany.png'
+import Brazil from '../../images/Brazil.svg'
+import Argentina from '../../images/Argentina.svg'
+import Canada from '../../images/Canada.svg'
+import France from '../../images/France.svg'
+import Italy from '../../images/Italy.svg'
+import Mexico from '../../images/Mexico.svg'
+import Philipines from '../../images/Philipines.svg'
+import Poland from '../../images/Poland.svg'
+import Romania from '../../images/Romania.svg'
+import Russia from '../../images/Russia.svg'
+import Serbia from '../../images/Serbia.png'
+import Dominican from '../../images/Dominican.png'
+import Georgia from '../../images/Georgia.png'
+import Slovenia from '../../images/Slovenia.svg'
+import Turkey from '../../images/Turkey.svg'
+import UAE from '../../images/UAE.svg'
+import Ukraine from '../../images/Ukraine.svg'
+import USA from '../../images/USA.svg'
+import Palestine from '../../images/Palestine.png'
+import Colombia from '../../images/Colombia.png'
+import Germany from '../../images/Germany.png'
 
 //guilds
-import LS from '@/images/guilds/LS.png'
-import Moonshine from '@/images/guilds/Moonshine.png'
-import Nightfall from '@/images/guilds/Nightfall.png'
-import Atomix from '@/images/guilds/Atomix.png'
-import unemployed from '@/images/guilds/unemployed.png'
+import LS from '../../images/guilds/LS.png'
+import Moonshine from '../../images/guilds/Moonshine.png'
+import Nightfall from '../../images/guilds/Nightfall.png'
+import Atomix from '../../images/guilds/Atomix.png'
+import unemployed from '../../images/guilds/unemployed.png'
 
 //profiles
-import Alfa from '@/images/people/Alfa.png'
-import Profile from '@/images/people/Profile.png'
-import polski from '@/images/people/polski.jpg'
-import A2 from '@/images/people/A2_1.png'
-import Tadex from '@/images/people/Tadex.gif'
-import Hespera from '@/images/people/Hespera.png'
-import BRuki from '@/images/people/BRuki.png'
+import Alfa from '../../images/people/Alfa.png'
+import Profile from '../../images/people/Profile.png'
+import polski from '../../images/people/polski.jpg'
+import A2 from '../../images/people/A2_1.png'
+import Tadex from '../../images/people/Tadex.gif'
+import Hespera from '../../images/people/Hespera.jpg'
+import BRuki from '../../images/people/BRuki.png'
 
 import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
-import Navbar from '@/components/Navbar'
+import Navbar from '../../components/Navbar'
 
 interface Player {
   id: string
@@ -905,7 +905,7 @@ const Page: React.FC = () => {
 
   return (
     <>
-      {/*Template by: @selimdoyranli*/}
+      {/*Template by: ../..selimdoyranli*/}
       <Navbar toolbar={`Players (${playerData.length})`} />
       <div className='filters'>
         <div className='search-container'>
