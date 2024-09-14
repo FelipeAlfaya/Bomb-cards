@@ -40,6 +40,8 @@ import A2 from '../../images/people/A2_1.png'
 import Tadex from '../../images/people/Tadex.gif'
 import Hespera from '../../images/people/Hespera.jpg'
 import BRuki from '../../images/people/BRuki.png'
+import SC from '../../images/people/SC.png'
+import Paladino from '../../images/people/Paladino.png'
 
 import { IconButton, InputAdornment, TextField, Button } from '@mui/material'
 import { GridSearchIcon } from '@mui/x-data-grid'
@@ -738,6 +740,22 @@ const playerData: Player[] = [
     PS: 82,
     overall: 80,
   },
+  // {
+  //   id: '43',
+  //   name: 'SC',
+  //   guild: 'LS',
+  //   nationality: 'Netherlands',
+  //   sector: null,
+  //   playstyle: 'AGGRO',
+  //   alignment: null,
+  //   Flexibility: 90,
+  //   Speed: 90,
+  //   Aim: 92,
+  //   ACC: 84,
+  //   ADP: 85,
+  //   PS: 83,
+  //   overall: 87,
+  // },
 ]
 
 const Page: React.FC = () => {
@@ -808,6 +826,10 @@ const Page: React.FC = () => {
         return BRuki.src
       case 'Hespera':
         return Hespera.src
+      case 'SC':
+        return SC.src
+      case 'Paladino':
+        return Paladino.src
       default:
         return Profile.src
     }
@@ -1106,14 +1128,14 @@ const Page: React.FC = () => {
                         <div className='player-feature-title'>SPD</div>
                       </span>
                       <span>
-                        <div className='player-feature-value'>{player.Aim}</div>
-                        <div className='player-feature-title'>AIM</div>
+                        <div className='player-feature-value'>{player.ACC}</div>
+                        <div className='player-feature-title'>ACC</div>
                       </span>
                     </div>
                     <div className='player-features-col'>
                       <span>
-                        <div className='player-feature-value'>{player.ACC}</div>
-                        <div className='player-feature-title'>ACC</div>
+                        <div className='player-feature-value'>{player.Aim}</div>
+                        <div className='player-feature-title'>AIM</div>
                       </span>
                       <span>
                         <div className='player-feature-value'>{player.ADP}</div>
