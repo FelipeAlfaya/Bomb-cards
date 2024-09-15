@@ -19,6 +19,7 @@ import Georgia from '../../images/Georgia.png'
 import Slovenia from '../../images/Slovenia.svg'
 import Turkey from '../../images/Turkey.svg'
 import UAE from '../../images/UAE.svg'
+import Netherlands from '../../images/Netherlands.png'
 import Ukraine from '../../images/Ukraine.svg'
 import USA from '../../images/USA.svg'
 import Palestine from '../../images/Palestine.png'
@@ -879,6 +880,8 @@ const Page: React.FC = () => {
         return Dominican.src
       case 'Georgia':
         return Georgia.src
+      case 'Netherlands':
+        return Netherlands.src
       default:
         return '/images/default-flag.png'
     }
